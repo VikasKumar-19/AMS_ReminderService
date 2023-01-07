@@ -2,6 +2,7 @@ const bodyParser = require("body-parser");
 const express = require("express");
 const { PORT } = require("./config/server-config");
 const { apiRoutes } = require("./routes");
+const jobs = require("./utils/job")
 
 const setupAndStartServer = () => {
   const app = express();
@@ -12,6 +13,7 @@ const setupAndStartServer = () => {
 
   app.listen(PORT, () => {
     console.log(`Server is running at https://localhost:${PORT}`);
+    jobs();
   });
 };
 
